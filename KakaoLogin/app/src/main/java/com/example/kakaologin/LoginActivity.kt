@@ -20,7 +20,7 @@ class LoginActivity :AppCompatActivity() {
             //로그인 실패
         }else if(token != null){
             //로그인 성공
-            Log.e("loginActivity", "lgoin in with kakao account token == $token")
+            Log.e("loginActivity", "login in with kakao account token == $token")
         }
     }
 
