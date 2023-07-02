@@ -7,7 +7,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RetrofitManager {
+object RetrofitManager {
 
     private val okHttpCLinet = OkHttpClient.Builder()
         .connectTimeout(5, TimeUnit.SECONDS)
@@ -23,4 +23,6 @@ class RetrofitManager {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(okHttpCLinet)
         .build()
+
+    val imageService : ImageService by lazy { retrofit.create(ImageService::class.java) }
 }
