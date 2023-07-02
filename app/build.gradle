@@ -1,15 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt' //binding adapter
 }
 
 android {
-    namespace 'com.example.mvvm_pattern'
+    namespace 'com.example.blindapplication'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.mvvm_pattern"
+        applicationId "com.example.blindapplication"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -31,10 +30,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
@@ -46,18 +41,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'io.coil-kt:coil:2.2.2'
-
-    // viewModel, liveData
-    implementation 'androidx.activity:activity-ktx:1.7.2'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
-
-    // 비동기
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
 }

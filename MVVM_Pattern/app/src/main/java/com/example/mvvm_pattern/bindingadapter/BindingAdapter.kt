@@ -7,14 +7,13 @@ import coil.load
 import com.example.mvvm_pattern.model.Image
 
 @BindingAdapter("image")
-fun ImageView.setImage(image: Image){
-    if(image == null){
+fun ImageView.setImage(image: Image?) {
+    if (image == null) {
         return
     }
 
     setBackgroundColor(Color.parseColor(image.color))
-
-    load(image.url){
+    load(image.url) {
         crossfade(300)
     }
 }
