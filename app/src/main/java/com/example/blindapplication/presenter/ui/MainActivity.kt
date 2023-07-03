@@ -2,6 +2,7 @@ package com.example.blindapplication.presenter.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Input
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,12 +29,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickAdd() {
-
+        InputActivity.start(this)
     }
 
     inner class Handler {
         fun onClickItem(item : Content){
-
+            InputActivity.start(this@MainActivity,item)
         }
 
         fun onLongCLickItem(item: Content) : Boolean {

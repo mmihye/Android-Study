@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.blindapplication.presenter.viewmodel.InputViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +29,7 @@
                 android:hint="카테고리"
                 android:imeOptions="actionNext"
                 android:inputType="text"
+                android:text="@={viewModel.category}"
                 android:textAppearance="@style/TextAppearance.App">
 
                 <requestFocus/>
@@ -50,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="제목"
+                android:text="@={viewModel.title}"
                 android:imeOptions="actionNext"
                 android:inputType="text"
                 android:textAppearance="@style/TextAppearance.App"/>
@@ -71,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="내용"
+                android:text="@={viewModel.content}"
                 android:imeOptions="actionDone"
                 android:inputType="textMultiLine"
                 android:gravity="top"
@@ -87,6 +92,7 @@
             android:paddingStart="@dimen/padding"
             android:paddingEnd="@dimen/padding"
             android:paddingTop="@dimen/padding_small"
+            android:onClick="@={() -> viewModel.insertData()}"
             android:paddingBottom="@dimen/padding_small"
             android:text="입력완료"
             app:layout_constraintStart_toStartOf="parent"
