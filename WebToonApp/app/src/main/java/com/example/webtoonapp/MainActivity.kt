@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             // transaction : 작업의 단위
             // beginTransaction : 작업을 시작, commitTransaction: 작업을 끝
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainer,WebViewFragment())
+                replace(R.id.fragmentContainer, WebViewFragment())
                 commit()
             }
         }
@@ -27,15 +27,28 @@ class MainActivity : AppCompatActivity() {
             // transaction : 작업의 단위
             // beginTransaction : 작업을 시작, commitTransaction: 작업을 끝
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentContainer,BFragment())
+                replace(R.id.fragmentContainer, BFragment())
                 commit()
             }
         }
-
-
-
-
-
-
     }
+
+        override fun onBackPressed() {
+            val currentFragment = supportFragmentManager.fragments.first()
+            // webView 안에서 뒤로가기시 여러번클릭으로 webView 내 뒤로갈곳이 있다면
+            // webView뒤로가기 없다면 activity backPressed로 앱이 종료
+            if(currentFragment is WebViewFragment){
+                if(currentFragment.canGoBack()){
+                    currentFragment.goBack()
+                }else{
+                    super.onBackPressed()
+                }}
+            else{
+                    super.onBackPressed()
+                }
+            }
+
+//            super.onBackPressed()
+
+
 }

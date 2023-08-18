@@ -9,9 +9,13 @@ import android.widget.ProgressBar
 
 class WebtoonWebViewClient(private val progressBar: ProgressBar) : WebViewClient() {
 
-    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-        return false
-    }
+//    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+//        // 네이버 웹툰 외의 사이트에는 이동 불가
+//        if(request != null && request.url.toString().contains("comic.naver.com"))
+//            return false
+//        else
+//            return true
+//    }
 
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
